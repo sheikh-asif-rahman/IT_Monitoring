@@ -84,9 +84,11 @@ class _UserProfileState extends State<UserProfile> {
                           Expanded(
                             flex: 1,
                             child: Container(
-                              alignment: Alignment.bottomCenter,
+                              alignment: Alignment.center,
                               child: Column(children: [
                                 Container(
+                                  height: size.height.h / 2.5,
+                                  width: size.width.w / 20,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(200),
                                       color: Colors.white,
@@ -94,7 +96,7 @@ class _UserProfileState extends State<UserProfile> {
                                           width: 2, color: Colors.grey)),
                                   child: const Icon(
                                     Icons.person,
-                                    size: 250,
+                                    size: 200,
                                     color: Colors.black54,
                                   ),
                                 ),
@@ -108,12 +110,12 @@ class _UserProfileState extends State<UserProfile> {
                                     icon: const Icon(
                                       Icons.edit_document,
                                       color: Colors.black87,
-                                      size: 30,
+                                      size: 25,
                                     ),
                                     label: const Text(
                                       "Edit Profile",
                                       style: TextStyle(
-                                          fontSize: 20,
+                                          fontSize: 14,
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -140,14 +142,14 @@ class _UserProfileState extends State<UserProfile> {
                                       left: 20, right: 20, top: 5),
                                   child: ElevatedButton.icon(
                                     icon: const Icon(
-                                      Icons.password_rounded,
+                                      Icons.vpn_key,
                                       color: Colors.black87,
-                                      size: 30,
+                                      size: 20,
                                     ),
                                     label: const Text(
                                       "Change Password",
                                       style: TextStyle(
-                                          fontSize: 20,
+                                          fontSize: 14,
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -176,14 +178,14 @@ class _UserProfileState extends State<UserProfile> {
                               margin: const EdgeInsets.all(10),
                               padding: const EdgeInsets.all(10),
                               alignment: Alignment.bottomCenter,
-                              child: const Column(children: [
+                              child: Column(children: [
                                 SizedBox(
-                                  height: 50,
+                                  height: 35,
                                   width: 300,
                                   child: Text(
                                     "My Name Is ABCDEF",
                                     style: TextStyle(
-                                        fontSize: 26,
+                                        fontSize: 19,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),
@@ -193,7 +195,7 @@ class _UserProfileState extends State<UserProfile> {
                                   child: Text(
                                     "ID: 12345678",
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 14,
                                         fontWeight: FontWeight.w900),
                                   ),
                                 ),
@@ -276,6 +278,7 @@ class _UserProfileState extends State<UserProfile> {
                 ],
               ),
             ),
+            //lower part container
             Container(
               margin: const EdgeInsets.all(20),
               padding: const EdgeInsets.all(20),

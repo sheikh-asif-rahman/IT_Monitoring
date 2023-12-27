@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hidden_drawer_menu/hidden_drawer_menu.dart';
 import 'package:labaid_project/admin/screens/components/dashboard.dart';
 import 'package:labaid_project/admin/screens/components/profile.dart';
+import 'package:labaid_project/admin/screens/components/user.dart';
 
 class AdminMenu extends StatefulWidget {
   const AdminMenu({super.key});
@@ -48,12 +49,12 @@ class _AdminMenuState extends State<AdminMenu> {
           UserProfile()),
       ScreenHiddenDrawer(
           ItemHiddenMenu(
-            name: "User",
+            name: "User and Rules",
             baseStyle: textstyle1,
             selectedStyle: textstyle2,
             colorLineSelected: Colors.indigoAccent,
           ),
-          AdminDashboard()),
+          User()),
     ];
   }
 
@@ -66,9 +67,9 @@ class _AdminMenuState extends State<AdminMenu> {
         isTitleCentered: true,
         styleAutoTittleName: const TextStyle(fontSize: 35),
         backgroundColorMenu: Colors.teal.shade100,
-        backgroundColorAppBar: Colors.lightBlue,
+        backgroundColorAppBar: Colors.deepPurpleAccent,
         screens: _list,
-        initPositionSelected: 1,
+        initPositionSelected: 2,
         verticalScalePercent: height * 0.12,
 
         // ? is for TRUE and : is for FALSE
