@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:labaid_project/admin/screens/drawer_menu/admin_menu.dart';
+import 'package:labaid_project/test_api.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            home: const AdminMenu(),
+            // home: const AdminMenu(),
+            home: const TestAPI(),
           );
         });
   }
