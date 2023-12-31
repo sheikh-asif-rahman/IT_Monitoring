@@ -16,6 +16,14 @@ class _UserState extends State<User> {
   List<Map<String, dynamic>> facilityAccessList = [
     {"title": "Labaid Dhanmondi", "isChecked": false}
   ];
+  List<Map<String, dynamic>> UserSpecialRights = [
+    {"title": "Can Edit", "isChecked": false},
+    {"title": "Can Delete", "isChecked": false},
+    {"title": "Can Cancle", "isChecked": false},
+  ];
+  List<Map<String, dynamic>> ActiveInactive = [
+    {"title": "Deactived", "isChecked": false}
+  ];
 
   // @override
   // void initState() {
@@ -605,8 +613,136 @@ class _UserState extends State<User> {
                   //right side expand part
                   Expanded(
                     flex: 1,
-                    child: Container(
-                      alignment: Alignment.bottomCenter,
+                    child: SingleChildScrollView(
+                      child: Container(
+                        alignment: Alignment.bottomCenter,
+                        child: Column(children: [
+                          Container(
+                            alignment: Alignment.topLeft,
+                            child: const Text(
+                              "Special Rights",
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          const Divider(
+                            color: Colors.grey,
+                            thickness: 1,
+                          ),
+
+                          //user access title and add delete button part
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            margin: const EdgeInsets.only(left: 10, right: 70),
+                            child: const Text(
+                              "User Special Rights",
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.deepPurple),
+                            ),
+                          ),
+
+                          //user access checkbox part
+                          SingleChildScrollView(
+                            child: Container(
+                                height: size.height.h / 2.5,
+                                width: size.width.w / 15,
+                                margin: const EdgeInsets.all(10),
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    border: Border.all(
+                                        width: 1, color: Colors.grey)),
+                                child: ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: UserSpecialRights.length,
+                                  itemBuilder: (context, index) =>
+                                      CheckboxListTile(
+                                    value: UserSpecialRights[index]
+                                        ["isChecked"],
+                                    onChanged: (value) {
+                                      setState(() {
+                                        UserSpecialRights[index]["isChecked"] =
+                                            value!;
+                                      });
+                                    },
+                                    title: Text(
+                                      UserSpecialRights[index]["title"],
+                                      style: const TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                )),
+                          ),
+                          //Facility title and add delete button part
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            margin: const EdgeInsets.only(left: 10, right: 110),
+                            child: const Text(
+                              "Active Status",
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.deepPurple),
+                            ),
+                          ),
+
+                          //Active Inactive checkbox part
+                          SizedBox(
+                              height: size.height.h / 10,
+                              width: size.width.w / 15,
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: ActiveInactive.length,
+                                itemBuilder: (context, index) =>
+                                    CheckboxListTile(
+                                  value: ActiveInactive[index]["isChecked"],
+                                  onChanged: (value) {
+                                    setState(() {
+                                      ActiveInactive[index]["isChecked"] =
+                                          value!;
+                                    });
+                                  },
+                                  title: Text(
+                                    ActiveInactive[index]["title"],
+                                    style: const TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              )),
+                          Container(
+                            width: size.width / 5,
+                            height: size.height / 15,
+                            margin: const EdgeInsets.only(right: 10),
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.resolveWith<Color>(
+                                  (Set<MaterialState> states) {
+                                    if (states
+                                        .contains(MaterialState.pressed)) {
+                                      return Colors.blue;
+                                    }
+                                    return Colors.white;
+                                  },
+                                ),
+                              ),
+                              //on press response code
+                              onPressed: () {},
+                              child: const Text(
+                                'Delete User',
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 18),
+                              ),
+                            ),
+                          ),
+                        ]),
+                      ),
                     ),
                   ),
                 ],
